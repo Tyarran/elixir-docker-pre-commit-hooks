@@ -2,5 +2,5 @@
   name: mix format
   description: Format Elixir files with mix format.
   language: docker_image
-  entry: elixir:latest mix
-  args: ["format"]
+  entry: elixir:latest mix format
+  files: \.ex$
