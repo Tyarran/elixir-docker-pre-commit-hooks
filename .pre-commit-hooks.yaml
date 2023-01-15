@@ -1,6 +1,16 @@
-- id: mix-format
-  name: mix format
-  description: Format Elixir files with mix format.
-  language: docker_image
-  entry: elixir:latest mix format
-  files: \.ex$
+# - id: mix-format
+#   name: mix format
+#   description: Format Elixir files with mix format.
+#   language: docker
+#   entry: mix format
+# - id: elixir-lint
+#   name: mix format --check-formatted
+#   description: Format Elixir files with mix format.
+#   language: docker
+#   entry: mix format --check-formatted
+- id: credo
+  name: mix credo
+  description: Credo.
+  language: docker
+  entry: /run_credo.sh
+  files: \.(exs|ex)$
