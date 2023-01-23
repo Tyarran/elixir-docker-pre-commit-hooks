@@ -1,16 +1,27 @@
-# - id: mix-format
-#   name: mix format
-#   description: Format Elixir files with mix format.
-#   language: docker
-#   entry: mix format
-# - id: elixir-lint
-#   name: mix format --check-formatted
-#   description: Format Elixir files with mix format.
-#   language: docker
-#   entry: mix format --check-formatted
 - id: credo
   name: mix credo
   description: Credo.
   language: docker
-  entry: /run_credo.sh
+  entry: /entrypoint.sh credo
+  files: \.(exs|ex)$
+
+- id: elixir-lint
+  name: lint
+  description: Credo.
+  language: docker
+  entry: /entrypoint.sh mix check
+  files: \.(exs|ex)$
+
+- id: elixir-format
+  name: format
+  description: Credo.
+  language: docker
+  entry: /entrypoint.sh mix format
+  files: \.(exs|ex)$
+
+- id: mix-test
+  name: test
+  description: Unit test.
+  language: docker
+  entry: /entrypoint.sh mix test
   files: \.(exs|ex)$
