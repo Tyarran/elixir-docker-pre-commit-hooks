@@ -11,6 +11,7 @@
   language: system
   entry: mix credo
   files: \.(exs|ex)$
+  pass_filenames: false
 
 - id: docker-mix-format
   name: mix format (docker)
