@@ -26,6 +26,7 @@
   description: Elixir code format
   language: system
   entry: mix format
+  files: \.(exs|ex)$
 
 - id: docker-mix-test
   name: mix test (docker)
