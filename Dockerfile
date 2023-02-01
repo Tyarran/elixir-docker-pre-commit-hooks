@@ -1,5 +1,8 @@
 from elixir:latest
 
+ADD ./mix.sh /mix.sh
+RUN chmod +x /mix.sh
+
 RUN useradd -ms /bin/bash mixuser
 USER mixuser
 
@@ -13,8 +16,8 @@ ENV HEX_HOME=/home/mixuser/.hex
 
 
 RUN mix local.hex --force
+RUN mix local.rebar --force
 
 WORKDIR /src
 
-ADD ./entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/mix.sh"]

@@ -1,27 +1,99 @@
-- id: credo
+- id: docker-mix-credo
+  name: mix credo (docker)
+  description: Credo.
+  language: docker
+  entry: /mix.sh
+  args: [credo]
+  files: \.(exs|ex)$
+  require_serial: true
+
+- id: mix-credo
   name: mix credo
   description: Credo.
+  language: system
+  entry: mix credo
+  files: \.(exs|ex)$
+  require_serial: true
+
+- id: docker-mix-format
+  name: mix format (docker)
+  description: Elixir code format
   language: docker
-  entry: /entrypoint.sh credo
+  entry: /mix.sh
+  args: [format]
   files: \.(exs|ex)$
 
-- id: elixir-lint
-  name: lint
-  description: Credo.
-  language: docker
-  entry: /entrypoint.sh mix check
+- id: mix-format
+  name: mix format
+  description: Elixir code format
+  language: system
+  entry: mix format
   files: \.(exs|ex)$
 
-- id: elixir-format
-  name: format
-  description: Credo.
-  language: docker
-  entry: /entrypoint.sh mix format
-  files: \.(exs|ex)$
-
-- id: mix-test
-  name: test
+- id: docker-mix-test
+  name: mix test (docker)
   description: Unit test.
   language: docker
-  entry: /entrypoint.sh mix test
+  entry: /mix.sh
+  args: [test]
+  files: \.(exs|ex)$
+  pass_filenames: false
+
+- id: mix-test
+  name: mix test
+  description: Unit test.
+  language: docker
+  entry: mix test
+  files: \.(exs|ex)$
+  pass_filenames: false
+
+- id: docker-mix-sobelow
+  name: mix sobelow (docker)
+  description: Sobelow | Security-focused static analysis for the Phoenix Framework
+  language: docker
+  entry: /mix.sh
+  args: [sobelow]
+  pass_filenames: false
+  files: \.(exs|ex)$
+
+- id: mix-sobelow
+  name: mix sobelow
+  description: Sobelow | Security-focused static analysis for the Phoenix Framework
+  language: docker
+  entry: mix sobelow
+  pass_filenames: false
+  files: \.(exs|ex)$
+
+- id: docker-mix-dialyzer
+  name: mix dialyzer (docker)
+  description: Dialyzer is a static analysis tool
+  language: docker
+  entry: /mix.sh
+  args: [dialyzer]
+  pass_filenames: false
+  files: \.(exs|ex)$
+
+- id: mix-dialyzer
+  name: mix dializer
+  description: Dialyzer is a static analysis tool
+  language: docker
+  entry: mix dializer
+  pass_filenames: false
+  files: \.(exs|ex)$
+
+- id: docker-mix-coverall-html
+  name: mix coverall.html (docker)
+  description: Test with coverage
+  language: docker
+  entry: /mix.sh
+  args: [coveralls.html]
+  pass_filenames: false
+  files: \.(exs|ex)$
+
+- id: mix-coverall-html
+  name: mix coveralls.html
+  description: Test with coverage
+  language: docker
+  entry: mix coveralls.html
+  pass_filenames: false
   files: \.(exs|ex)$

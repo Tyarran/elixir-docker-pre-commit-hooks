@@ -1,8 +1,6 @@
 #!/bin/bash
 # set -o xtrace
 
-
-
 function credo() {
 	file_args=()
 	for file in ${@:2}
