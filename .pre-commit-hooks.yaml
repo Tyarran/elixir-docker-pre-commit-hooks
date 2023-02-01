@@ -9,7 +9,7 @@
   name: mix credo
   description: Credo
   language: system
-  entry: mix credo --strict
+  entry: mix credo
   files: \.(exs|ex)$
 
 - id: docker-mix-format
@@ -70,7 +70,7 @@
   files: \.(exs|ex)$
 
 - id: mix-dialyzer
-  name: mix dializer
+  name: mix dialyzer
   description: Dialyzer is a static analysis tool
   language: system
   entry: mix dialyzer
@@ -86,10 +86,18 @@
   pass_filenames: false
   files: \.(exs|ex)$
 
-- id: mix-coverall-html
+- id: mix-coveralls-html
   name: mix coveralls.html
   description: Test with coverage
   language: system
   entry: mix coveralls.html
   pass_filenames: false
   files: \.(exs|ex)$
+
+- id: mix-deps-audit
+  name: mix deps-audit
+  description: Vulnerability check
+  language: system
+  entry: mix deps.audit
+  pass_filenames: false
+  always_run: true
