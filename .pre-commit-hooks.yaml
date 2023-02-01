@@ -7,9 +7,9 @@
 
 - id: mix-credo
   name: mix credo
-  description: Credo.
+  description: Credo
   language: system
-  entry: mix credo
+  entry: mix credo --strict
   files: \.(exs|ex)$
 
 - id: docker-mix-format
@@ -25,7 +25,6 @@
   description: Elixir code format
   language: system
   entry: mix format
-  files: \.(exs|ex)$
 
 - id: docker-mix-test
   name: mix test (docker)
@@ -39,7 +38,7 @@
 - id: mix-test
   name: mix test
   description: Unit test.
-  language: docker
+  language: system
   entry: mix test
   files: \.(exs|ex)$
   pass_filenames: false
@@ -56,7 +55,7 @@
 - id: mix-sobelow
   name: mix sobelow
   description: Sobelow | Security-focused static analysis for the Phoenix Framework
-  language: docker
+  language: system
   entry: mix sobelow
   pass_filenames: false
   files: \.(exs|ex)$
@@ -73,8 +72,8 @@
 - id: mix-dialyzer
   name: mix dializer
   description: Dialyzer is a static analysis tool
-  language: docker
-  entry: mix dializer
+  language: system
+  entry: mix dialyzer
   pass_filenames: false
   files: \.(exs|ex)$
 
@@ -90,7 +89,7 @@
 - id: mix-coverall-html
   name: mix coveralls.html
   description: Test with coverage
-  language: docker
+  language: system
   entry: mix coveralls.html
   pass_filenames: false
   files: \.(exs|ex)$

@@ -13,6 +13,7 @@ RUN chmod -R 777 /home/mixuser/.hex
 
 ENV MIX_HOME=/home/mixuser/.mix
 ENV HEX_HOME=/home/mixuser/.hex
+ENV MIX_ENV=dev
 
 
 RUN mix local.hex --force
