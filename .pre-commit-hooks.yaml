@@ -2,10 +2,8 @@
   name: mix credo (docker)
   description: Credo.
   language: docker
-  entry: /mix.sh
-  args: [credo]
+  entry: /mix.sh credo
   files: \.(exs|ex)$
-  require_serial: true
 
 - id: mix-credo
   name: mix credo
@@ -13,7 +11,6 @@
   language: system
   entry: mix credo
   files: \.(exs|ex)$
-  require_serial: true
 
 - id: docker-mix-format
   name: mix format (docker)
